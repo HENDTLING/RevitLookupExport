@@ -1,4 +1,4 @@
-﻿// Copyright (c) Lookup Foundation and Contributors
+// Copyright (c) Lookup Foundation and Contributors
 // 
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -60,6 +60,8 @@ public sealed class RevitRibbonService(ISettingsService settingsService)
         pullButton.AddPushButton<DecomposeLinkedElementCommand>("Snoop Linked element");
         pullButton.AddPushButton<SearchElementsCommand>("Search Elements");
         pullButton.AddPushButton<ShowEventMonitorCommand>("Event monitor")
+            .SetAvailabilityController<CommandAlwaysAvailableController>();
+        pullButton.AddPushButton<ExportProjectCsvCommand>("Export Project CSV")
             .SetAvailabilityController<CommandAlwaysAvailableController>();
 
         if (settingsService.ApplicationSettings.UseModifyTab)
