@@ -16,6 +16,7 @@ using RevitLookup.Services.Appearance;
 using RevitLookup.Services.Application;
 using RevitLookup.Services.Decomposition;
 using RevitLookup.Services.Settings;
+using RevitLookup.Services.Export;
 using RevitLookup.UI.Framework.Services;
 using RevitLookup.UI.Framework.Services.Presentation;
 using Wpf.Ui;
@@ -75,6 +76,7 @@ public static class Host
         builder.Services.AddSingleton<IThemeWatcherService, ThemeWatcherService>();
         builder.Services.AddSingleton<RevitRibbonService>();
         builder.Services.AddHostedService<HostBackgroundService>();
+        builder.Services.AddScoped<RevitLookup.Abstractions.Services.Export.ICsvExportService, CsvExportService>();
 
         //Composer services
         builder.Services.AddScoped<IDecompositionService, DecompositionService>();
